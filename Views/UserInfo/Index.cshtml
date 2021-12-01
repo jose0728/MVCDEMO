@@ -1,0 +1,30 @@
+﻿@*@using MVCDEMO.Models;*@
+@model MVCDEMO.Models.UserInfo
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table border="1" cellpadding="0" cellspacing="0">
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>查看</th>
+        <th>修改</th>
+        <th>删除</th>
+    </tr>
+    @{ List<MVCDEMO.Models.UserInfo> list = ViewData["userinfolist"] as List<MVCDEMO.Models.UserInfo>;
+        if (list.Count > 0)
+        {
+            foreach (var item in list)
+            {
+                <tr>
+                    <td>@item.UserId</td>
+                    <td>@item.Name</td>
+                    <td><a href="~/UserInfo/Detail?userId=@item.UserId">查看</a></td>
+                    <td><a href="~/UserInfo/Update?id=@item.UserId">修改</a></td>
+                    <td><a href="#">删除</a></td>
+                </tr>
+            }
+        } }
+</table>

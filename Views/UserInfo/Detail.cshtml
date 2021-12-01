@@ -1,0 +1,37 @@
+﻿@model MVCDEMO.Models.UserInfo
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+<body>
+    <div>
+        <h1>学员【@ViewBag.User.Name】的详细信息(ViewBag)</h1>
+        <ul>
+            <li>学号：@ViewBag.User.UserId</li>
+            <li>姓名：@ViewBag.User.Name</li>
+            <li>企业：@ViewBag.User.EnterpriseId</li>
+            <li>职位：@ViewBag.User.Position</li>
+        </ul>
+    </div>
+    <div>
+        @{ MVCDEMO.Models.UserInfo user = TempData["userinfo"] as MVCDEMO.Models.UserInfo;
+            <h1>学员【@user.Name】的详细信息(TempData)</h1>
+            <ul>
+                <li>学号：@user.UserId</li>
+                <li>姓名：@user.Name</li>
+                <li>企业：@user.EnterpriseId</li>
+                <li>职位：@user.Position</li>
+            </ul>
+        }
+    </div>
+    <div>
+        <h1>学员【@Model.Name】的详细信息(View()+Model)</h1>
+        <ul>
+            <li>学号：@Model.UserId</li>
+            <li>姓名：@Model.Name</li>
+            <li>企业：@Model.EnterpriseId</li>
+            <li>职位：@Model.Position</li>
+        </ul>
+    </div>
+</body>
